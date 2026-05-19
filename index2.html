@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Foto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .album-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .album-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .album-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .album-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Album Foto</h1>
+        
+        <div class="album-grid">
+            <div class="album-item">
+                <img src="j.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="DESI OKTA.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="18078.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="WhatsApp Image 2025-07-27 at 20.08.21_9154ebfa.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="IMG20250816123804.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="IMG20250816123706.jpg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="WhatsApp Image 2026-05-05 at 12.39.22.jpeg" class="album-image" alt="">
+            </div>
+            <div class="album-item">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" class="album-image" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

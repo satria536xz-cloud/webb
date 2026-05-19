@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortoplio - Beranda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header - Warna Navi Gradient */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+          
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero - BG Biasa */
+        .hero {
+            background: 
+                radial-gradient(ellipse 60% 50% at 25% 30%, rgba(102,126,234,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse 45% 35% at 75% 70%, rgba(118,75,162,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 30% 25% at 50% 80%, rgba(240,147,251,0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1426 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        /* Logo Bulat */
+        .fortoplio-logo {
+            width: 320px;
+            height: 320px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 
+                0 0 40px rgba(102,126,234,0.6),
+                0 0 80px rgba(118,75,162,0.4);
+            transition: all 0.3s ease;
+            border: 4px solid rgba(255,255,255,0.4);
+        }
+
+        .fortoplio-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 60px rgba(102,126,234,0.8),
+                0 0 100px rgba(118,75,162,0.6);
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .fortoplio-logo:hover .logo-image {
+            transform: scale(1.1);
+        }
+
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(102,126,234,0.2) 0%, rgba(118,75,162,0.2) 100%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.95);
+            max-width: 600px;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.8);
+        }
+
+        /* Features - TEMPAT FOTO/GAMBAR */
+        .features {
+            padding: 8rem 2rem;
+            background: #f8fafc;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+           
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-top: 4px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2) border-box;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        /* TEMPAT FOTO/GAMBAR DI FITUR */
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .feature-card:hover .feature-image {
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            -webkit-text-fill-color:black;
+            opacity: 0;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .feature-icon {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            align-items: start;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 2rem;
+            color: #94a3b8;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .fortoplio-logo { 
+                width: 260px; 
+                height: 260px; 
+            }
+            .feature-image { height: 160px; }
+            .footer-grid { 
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-text">walcome satria:)</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="index5.html">tentangg saya</a></li>
+                <li><a href="index2.html">album</a></li>
+                <li><a href="index3.html">projek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="fortoplio-logo">
+                <div class="logo-overlay"></div>
+                <!-- GANTI GAMBAR LOGO DI SINI -->
+                <img src="j.jpg" 
+                     alt="Fortoplio Logo" 
+                     class="logo-image">
+            </div>
+            <p class="hero-subtitle">Saya adalah seorang mahasiswa yang sedang menempuh pendidikan di bidang informatika. Saya memiliki minat yang besar dalam dunia teknologi, serta aktif mengembangkan kemampuan di bidang desain dan pemrograman. Selain itu, Dengan semangat belajar yang tinggi, saya berusaha untuk terus berkembang dan memberikan kontribusi yang positif di masa depan..</p>
+            <a href="#features" class="cta">my family</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">my family</h2>
+        <div class="features-grid">
+            <!-- FITUR 1 - GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="IMG20250816123804.jpg" 
+                     alt="Performa Tinggi" 
+                     class="feature-image">
+                <h3>adik perempuan</h3>
+                <p>arliana maesani.</p>
+            </div>
+
+            <!-- FITUR 2 - GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="WhatsApp Image 2025-07-27 at 20.08.21_9154ebfa.jpg" 
+                     alt="Desain Elegan" 
+                     class="feature-image">
+                     <h3>contoh gambar</h3>
+                <p>kumpul ama teman</p>
+            </div>
+             <!-- FITUR 3 - GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="DESI OKTA.jpg" 
+                     alt="Mudah Edit" 
+                     class="feature-image">
+                <h3>saudara perempuan </h3>
+                <p>desi oktarina</p>
+            </div>
+
+  <!-- FITUR 4- GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="18078.jpg" 
+                     alt="Mudah Edit" 
+                     class="feature-image">
+                <h3>contoh gambar</h3>
+                <p></p>
+            </div>
+              <!-- FITUR 5 - GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="j.jpg" 
+                     alt="Mudah Edit" 
+                     class="feature-image">
+                <h3>logo universitas </h3>
+                <p>universitas Hamzanwadi</p>
+            </div>
+              <!-- FITUR 6- GANTI GAMBAR DI SINI -->
+            <div class="feature-card">
+                <img src="WhatsApp Image 2026-05-05 at 12.39.22.jpeg" 
+                     alt="Mudah Edit" 
+                     class="feature-image">
+                <h3>teman</h3>
+                <p></p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Fortoplio</h3>
+                <p>© 2024 Fortoplio.muhamad anjas satria jani.</p>
+                 <p><a href="https://www.instagram.com/satria.xzyy7/profilecard/?igsh=MTN1dTJrdHY0amNhYw==">instagram</a></p>
+                <p><a href="https://wa.me/qr/3JSODJSHXBVHJ1">Wathsaap</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Beranda</a>
+                <a href="#features">Fitur</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>✉️ satria536xz@gmail.com</p>
+                <p>📱 +62 838 4567 5026</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Fortoplio. muhamad anjas satria jani.</p>
+             <p>instagram: <a href="https://www.instagram.com/satria.xzyy7/profilecard/?igsh=MTN1dTJrdHY0amNhYw==">instagram</a></p>
+            <p>Wathsaap: <a href="https://wa.me/qr/3JSODJSHXBVHJ1">Wathsaap</a></p>
+        </div>
+    </footer>
+
+ 
+</body>
+</html>
